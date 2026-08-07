@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shandong Taikai Power Equipment Co., Ltd.</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0a3d62;
+            --accent: #3c6382;
+            --highlight: #e58e26;
+            --light: #f5f6fa;
+            --text: #2c3e50;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text);
+            background: var(--light);
+            line-height: 1.7;
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0a3d62 0%, #1e5a8a 50%, #0c2461 100%);
+            color: var(--white);
+            padding: 60px 20px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath fill='%23ffffff' fill-opacity='0.04' d='M40 0L0 40l40 40 40-40z'/%3E%3C/svg%3E");
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .hero-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 16px;
+            background: white;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .hero h1 { font-size: 28px; margin-bottom: 8px; letter-spacing: 0.5px; }
+        .hero .tagline { font-size: 16px; opacity: 0.85; font-weight: 300; }
+        .hero .badges { margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .hero .badge {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        /* Sections */
+        .section { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+        .section-title {
+            font-size: 22px;
+            color: var(--primary);
+            border-left: 4px solid var(--highlight);
+            padding-left: 14px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        /* About */
+        .about-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+        }
+        .about-card p { margin-bottom: 14px; font-size: 15px; }
+        .about-card p:last-child { margin-bottom: 0; }
+        .stats { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 24px; }
+        .stat-box { flex: 1; min-width: 130px; text-align: center; }
+        .stat-num { font-size: 28px; font-weight: 800; color: var(--highlight); }
+        .stat-label { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+        /* Products */
+        .product-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+        @media(min-width:680px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+        .product-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px 20px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+            border-top: 4px solid var(--accent);
+            transition: transform 0.2s;
+        }
+        .product-card:active { transform: scale(0.98); }
+        .product-icon { font-size: 36px; margin-bottom: 12px; }
+        .product-card h3 { font-size: 16px; color: var(--primary); margin-bottom: 6px; }
+        .product-card .voltage { font-size: 13px; color: var(--highlight); font-weight: 700; margin-bottom: 8px; }
+        .product-card p { font-size: 13px; color: #666; }
+        /* International */
+        .intl-section { background: var(--white); border-radius: 12px; padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+        .intl-section p { font-size: 15px; margin-bottom: 14px; }
+        .country-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+        .country-tag {
+            background: #e8f0fe;
+            color: var(--primary);
+            padding: 5px 14px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .clients { margin-top: 20px; }
+        .clients h4 { font-size: 14px; color: #888; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .client-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .client-tag { font-size: 12px; background: #f0f0f0; padding: 4px 12px; border-radius: 4px; color: #555; }
+        /* Lead Time */
+        .lead-time { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+        .lead-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: #f8f9fb; border-radius: 8px; }
+        .lead-row .name { font-weight: 600; font-size: 14px; }
+        .lead-row .time { font-size: 13px; color: var(--highlight); font-weight: 700; }
+        /* Contact */
+        .contact-grid { background: var(--white); border-radius: 12px; padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+        .contact-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+        .contact-item:last-child { margin-bottom: 0; }
+        .contact-icon { font-size: 22px; flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: #e8f0fe; border-radius: 8px; }
+        .contact-info label { font-size: 12px; color: #999; display: block; }
+        .contact-info span { font-size: 15px; font-weight: 600; color: var(--text); word-break: break-all; }
+        .contact-info a { color: var(--accent); text-decoration: none; }
+        /* Download */
+        .download-section { text-align: center; padding: 36px 20px; }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--highlight);
+            color: var(--white);
+            padding: 14px 36px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(229,142,38,0.35);
+            transition: all 0.2s;
+        }
+        .download-btn:active { transform: scale(0.96); }
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 24px 20px;
+            font-size: 13px;
+        }
+        .footer a { color: var(--white); text-decoration: none; }
+        /* Cert badges */
+        .cert-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 16px; }
+        .cert-badge {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+    <div class="hero-content">
+        <img src="assets/taikai-logo.jpg" alt="Taikai Logo" class="hero-logo">
+        <h1>Shandong Taikai Power Equipment Co., Ltd.</h1>
+        <p class="tagline">National High-Tech Enterprise | Power Equipment Manufacturer Since 2010</p>
+        <div class="badges">
+            <span class="badge">ISO 9001</span>
+            <span class="badge">ISO 14001</span>
+            <span class="badge">OHSAS 18001</span>
+            <span class="badge">GB/T 10230 Standard Maker</span>
+        </div>
+    </div>
+</header>
+
+<!-- About -->
+<section class="section">
+    <h2 class="section-title">About Us</h2>
+    <div class="about-card">
+        <p>Shandong Taikai Power Equipment Co., Ltd., founded in 2010, is a national high-tech enterprise integrating design, R&D, production, sales, service, and maintenance. Its main products include on-load tap changers (OLTC)(35-220kV), fiberglass reinforced plastic dry-type bushings (FRP) (12-330kV), and neutral point complete set devices(110-220kV).</p>
+        <p>Through cooperation with major domestic transformer companies, its terminal products have earned the trust of major players in the power industry, are utilized by companies such as State Grid, Southern Grid, and involved in various industries such as coal, petroleum, steel, smelting, chemical engineering, railway and photovoltaic/wind power.</p>
+        <p>The products are exported to more than 20 countries including Thailand, Mongolia, Uzbekistan, Nicaragua, Oman and Zimbabwe,etc.</p>
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-num">15+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">20+</div>
+                <div class="stat-label">Export Countries</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">3</div>
+                <div class="stat-label">Product Lines</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">14</div>
+                <div class="stat-label">Patents</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products -->
+<section class="section">
+    <h2 class="section-title">Our Products</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="product-icon">⚡</div>
+            <h3>On-Load Tap Changer (OLTC)</h3>
+            <div class="voltage">35 - 220 kV</div>
+            <p>Oil-immersed arc-quenching and vacuum OLTC. Includes the innovative JKMD series non-arcing OLTC with thyristor-mechanical hybrid technology, certified by China Machinery Engineering Association.</p>
+        </div>
+        <div class="product-card">
+            <div class="product-icon">🔌</div>
+            <h3>FRP Dry-Type Bushing</h3>
+            <div class="voltage">12 - 330 kV</div>
+            <p>Fiberglass reinforced plastic dry-type bushings. Types include transformer bushings, wall-through bushings, GIS bushings, and oil-SF6 bushings. One-piece umbrella molding technology.</p>
+        </div>
+        <div class="product-card">
+            <div class="product-icon">🛡️</div>
+            <h3>Neutral Point Set Device</h3>
+            <div class="voltage">110 - 220 kV</div>
+            <p>Complete neutral point protection devices for transformers, providing reliable grounding protection and overvoltage protection for power systems.</p>
+        </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 32px;">Estimated Lead Time</h2>
+    <div class="intl-section">
+        <div class="lead-time">
+            <div class="lead-row">
+                <span class="name">OLTCs</span>
+                <span class="time">70 - 80 Days</span>
+            </div>
+            <div class="lead-row">
+                <span class="name">FRP Bushings</span>
+                <span class="time">60 - 70 Days</span>
+            </div>
+            <div class="lead-row">
+                <span class="name">Neutral Point Devices</span>
+                <span class="time">50 - 60 Days</span>
+            </div>
+        </div>
+        <p style="font-size: 12px; color: #aaa; margin-top: 12px;">* Lead time starts after drawing confirmation and advanced payment received. Expedited production available.</p>
+    </div>
+</section>
+
+<!-- International Presence -->
+<section class="section">
+    <h2 class="section-title">Global Presence</h2>
+    <div class="intl-section">
+        <p>Our products are exported to more than 20 countries across Asia, Africa, and Latin America, serving diverse power industry projects worldwide.</p>
+        <div class="country-list">
+            <span class="country-tag">🇹🇭 Thailand</span>
+            <span class="country-tag">🇲🇳 Mongolia</span>
+            <span class="country-tag">🇺🇿 Uzbekistan</span>
+            <span class="country-tag">🇳🇮 Nicaragua</span>
+            <span class="country-tag">🇴🇲 Oman</span>
+            <span class="country-tag">🇿🇼 Zimbabwe</span>
+            <span class="country-tag">🇵🇭 Philippines</span>
+            <span class="country-tag">🇨🇲 Cameroon</span>
+            <span class="country-tag">+ 12 more</span>
+        </div>
+        <div class="clients">
+            <h4>Notable Project References</h4>
+            <div class="client-tags">
+                <span class="client-tag">15MW Philippines DMCI Palawan Thermal Power Plant</span>
+                <span class="client-tag">Cameroon Memve'ele Hydropower Station</span>
+            </div>
+        </div>
+        <div class="clients">
+            <h4>Major Clients</h4>
+            <div class="client-tags">
+                <span class="client-tag">State Grid</span>
+                <span class="client-tag">Southern Grid</span>
+                <span class="client-tag">China Guodian</span>
+                <span class="client-tag">China Huaneng</span>
+                <span class="client-tag">China Datang</span>
+                <span class="client-tag">China Huadian</span>
+                <span class="client-tag">CGN</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="section">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-grid">
+        <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div class="contact-info">
+                <label>Website</label>
+                <span><a href="http://www.tkdlsb.com">www.tkdlsb.com</a></span>
+            </div>
+        </div>
+        <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-info">
+                <label>Phone / Tel</label>
+                <span>+86 538 8935501</span>
+            </div>
+        </div>
+        <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-info">
+                <label>Email</label>
+                <span>sdtkdlsbyxgs@163.com</span>
+            </div>
+        </div>
+        <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-info">
+                <label>Address</label>
+                <span>Taikai Industrial Park, High-tech Development Zone, Tai'an City, Shandong Province, China 271000</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Download -->
+<section class="download-section">
+    <a href="brochure.pdf" class="download-btn">
+        📄 Download Company Brochure (PDF)
+    </a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2026 Shandong Taikai Power Equipment Co., Ltd. | <a href="http://www.tkdlsb.com">www.tkdlsb.com</a></p>
+    <p style="margin-top:6px;">A subsidiary of Taikai Group | Tai'an, Shandong, China</p>
+</footer>
+
+</body>
+</html>
