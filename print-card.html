@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Taikai QR Exhibition Card</title>
+    <style>
+        @page { size: A4; margin: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: linear-gradient(135deg, #0a3d62 0%, #1e5a8a 100%);
+            color: white;
+            padding: 50px 40px 40px;
+            text-align: center;
+        }
+        .header h1 { font-size: 38px; margin-bottom: 10px; }
+        .header p { font-size: 18px; opacity: 0.9; }
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+        .qr-frame {
+            border: 8px solid #0a3d62;
+            border-radius: 24px;
+            padding: 30px;
+            background: white;
+            box-shadow: 0 8px 30px rgba(10,61,98,0.15);
+        }
+        .qr-frame img { width: 360px; height: 360px; display: block; }
+        .scan-text {
+            margin-top: 30px;
+            font-size: 28px;
+            color: #0a3d62;
+            font-weight: 700;
+            text-align: center;
+        }
+        .subtitle {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #666;
+            text-align: center;
+        }
+        .short-url {
+            margin-top: 16px;
+            font-size: 24px;
+            color: #0a3d62;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 1px;
+            background: #f0f4f8;
+            padding: 8px 24px;
+            border-radius: 8px;
+        }
+        .products {
+            margin-top: 40px;
+            text-align: center;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 520px;
+        }
+        .footer {
+            background: #f8f9fb;
+            padding: 30px 40px;
+            text-align: center;
+            border-top: 3px solid #e58e26;
+        }
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            font-size: 15px;
+            color: #444;
+        }
+        .contact-item { display: flex; align-items: center; gap: 8px; }
+        .contact-item strong { color: #0a3d62; }
+        .website { margin-top: 15px; font-size: 18px; color: #e58e26; font-weight: 700; }
+        @media print {
+            body { padding: 0; background: white; }
+            .card { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <h1>Shandong Taikai Power Equipment Co., Ltd.</h1>
+            <p>National High-Tech Enterprise | Power Equipment Since 2010</p>
+        </div>
+        <div class="main">
+            <div class="qr-frame">
+                <img src="Taikai_QR_Code.png" alt="Scan for company information">
+            </div>
+            <div class="scan-text">Scan to View Our Products</div>
+            <div class="subtitle">Company profile, product catalog, contact details & downloadable brochure</div>
+            <div class="short-url">tinyurl.com/22nmdbhj</div>
+            <div class="products">
+                <strong>Main Products:</strong> On-Load Tap Changers (OLTC) 35-220kV | FRP Dry-Type Bushings 12-330kV | Neutral Point Complete Set Devices 110-220kV
+            </div>
+        </div>
+        <div class="footer">
+            <div class="contact-row">
+                <div class="contact-item">📞 <strong>Tel:</strong> +86 538 8935501</div>
+                <div class="contact-item">✉️ <strong>Email:</strong> sdtkdlsbyxgs@163.com</div>
+            </div>
+            <div class="website">www.tkdlsb.com</div>
+        </div>
+    </div>
+</body>
+</html>
